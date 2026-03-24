@@ -1,13 +1,13 @@
-'use client'
-
 import { MandalaDecoration } from './MandalaDecoration'
+import { WeddingData } from '@/types/wedding'
 
 interface IntroScreenProps {
   onOpen: () => void
   hidden: boolean
+  data: WeddingData
 }
 
-export function IntroScreen({ onOpen, hidden }: IntroScreenProps) {
+export function IntroScreen({ onOpen, hidden, data }: IntroScreenProps) {
   return (
     <section
       id="introScreen"
@@ -36,13 +36,13 @@ export function IntroScreen({ onOpen, hidden }: IntroScreenProps) {
         </div>
 
         <h1 className="mt-8 mb-0 flex flex-col items-center gap-0 leading-[1.1]">
-          <span className="text-[60px] md:text-[90px] text-white font-normal font-script">Naji</span>
+          <span className="text-[60px] md:text-[90px] text-white font-normal font-script">{data.details.groom.name}</span>
           <div className="flex items-center justify-center gap-4 w-full my-4">
             <div className="flex-none w-12 h-px bg-[#E6B836] opacity-40" />
             <span className="text-[1.2rem] font-normal text-[#E6B836] font-serif">&amp;</span>
             <div className="flex-none w-12 h-px bg-[#E6B836] opacity-40" />
           </div>
-          <span className="text-[60px] md:text-[90px] text-white font-normal font-script">Ayisha</span>
+          <span className="text-[60px] md:text-[90px] text-white font-normal font-script">{data.details.bride.name}</span>
         </h1>
 
         <p className="mt-12 mb-0 text-white tracking-[0.25em] uppercase text-[0.9rem] opacity-50 font-serif">

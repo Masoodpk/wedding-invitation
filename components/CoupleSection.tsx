@@ -1,4 +1,12 @@
-export function CoupleSection() {
+import { WeddingData } from '@/types/wedding'
+
+interface CoupleSectionProps {
+  data: WeddingData
+}
+
+export function CoupleSection({ data }: CoupleSectionProps) {
+  const { groom, bride } = data.details
+
   return (
     <section className="reveal py-8 px-4 pb-[clamp(4rem,8vw,6rem)] max-w-[1100px] mx-auto text-center" id="couple">
       <div className="mb-16">
@@ -13,24 +21,14 @@ export function CoupleSection() {
       <div className="flex flex-col lg:flex-row justify-center items-stretch gap-12 lg:gap-8 relative">
         {/* Groom */}
         <article className="flex-1 max-w-[400px] flex flex-col items-center mx-auto">
-          {/* <div className="w-full aspect-[0.75] rounded-t-[9999px] rounded-b-xl overflow-hidden border border-accent/20 mb-8 shadow-lg">
-        
-            <img
-              src="/assets/groom-optimized.jpg"
-              alt="Portrait of the groom"
-              className="person-photo parallax w-full h-full object-cover scale-[1.05]"
-              loading="lazy"
-              decoding="async"
-            />
-          </div> */}
           <div className="w-full text-center">
             <p className="text-accent text-[0.8rem] tracking-[0.25em] m-0 mb-4 font-serif">• THE GROOM</p>
             <h4 className="text-[clamp(1.8rem,3vw,2.4rem)] text-text m-0 mb-2 leading-[1.2] font-serif">
-              Naji
-              <br />
-              Ibn Muhammed
+              {groom.fullName ? groom.fullName.split(' ').join('\n') : groom.name}
             </h4>
-            <p className="text-muted text-[0.95rem] m-0 font-body italic">Son of Mr. &amp; Mrs. Muhammed</p>
+            {groom.parents && (
+              <p className="text-muted text-[0.95rem] m-0 font-body italic">Son of {groom.parents}</p>
+            )}
           </div>
         </article>
 
@@ -40,24 +38,14 @@ export function CoupleSection() {
 
         {/* Bride */}
         <article className="flex-1 max-w-[400px] flex flex-col items-center mx-auto">
-          {/* <div className="w-full aspect-[0.75] rounded-t-[9999px] rounded-b-xl overflow-hidden border border-accent/20 mb-8 shadow-lg">
-   
-            <img
-              src="/assets/bride-optimized.jpg"
-              alt="Portrait of the bride"
-              className="person-photo parallax w-full h-full object-cover scale-[1.05]"
-              loading="lazy"
-              decoding="async"
-            />
-          </div> */}
           <div className="w-full text-center">
             <p className="text-accent text-[0.8rem] tracking-[0.25em] m-0 mb-4 font-serif">THE BRIDE •</p>
             <h4 className="text-[clamp(1.8rem,3vw,2.4rem)] text-text m-0 mb-2 leading-[1.2] font-serif">
-              Ayisha
-              <br />
-              Ziyad
+              {bride.fullName ? bride.fullName.split(' ').join('\n') : bride.name}
             </h4>
-            <p className="text-muted text-[0.95rem] m-0 font-body italic">Daughter of Mr. &amp; Mrs. Ziyad</p>
+            {bride.parents && (
+              <p className="text-muted text-[0.95rem] m-0 font-body italic">Daughter of {bride.parents}</p>
+            )}
           </div>
         </article>
       </div>

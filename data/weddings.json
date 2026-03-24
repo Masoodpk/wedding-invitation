@@ -1,0 +1,75 @@
+{
+  "weddings": [
+    {
+      "id": "naji-ayisha",
+      "slug": "naji-ayisha",
+      "theme": "sketchy-modern",
+      "details": {
+        "groom": {
+          "name": "Naji",
+          "fullName": "Naji Ibn Muhammed",
+          "parents": "Mr. & Mrs. Muhammed"
+        },
+        "bride": {
+          "name": "Ayisha",
+          "fullName": "Ayisha Ziyad",
+          "parents": "Mr. & Mrs. Ziyad"
+        },
+        "date": "2026-12-20T10:00:00Z",
+        "venue": "All Seasons",
+        "address": "ul. Bolshaya Morskaya, 34",
+        "events": [
+          {
+            "title": "NIKAH",
+            "time": "3:00 PM",
+            "date": "20 December 2026",
+            "location": "Bride's Residence",
+            "icon": "calendar"
+          },
+          {
+            "title": "RECEPTION",
+            "time": "6:00 PM",
+            "date": "20 December 2026",
+            "location": "Groom's Residence",
+            "icon": "reception"
+          },
+          {
+            "title": "THE VENUE",
+            "time": "Kothiyoth House",
+            "date": "Nandi Bazar, Calicut",
+            "location": "",
+            "address": "Nandi Bazar, Calicut",
+            "mapLink": "https://www.google.com/maps?q=11.483810424804688,75.64095306396484&z=17&hl=en",
+            "icon": "pin"
+          }
+        ],
+        "quote": {
+          "text": "And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility with them...",
+          "source": "Surah Ar-Rum"
+        },
+        "music": "/assets/wedding_music.mp3",
+        "heroImage": "/assets/786.jpg"
+      }
+    },
+    {
+      "id": "kirill-ulyana",
+      "slug": "kirill-ulyana",
+      "theme": "sketchy-modern",
+      "details": {
+        "groom": {
+          "name": "Кирилл"
+        },
+        "bride": {
+          "name": "Ульяна"
+        },
+        "date": "2024-07-05T18:00:00Z",
+        "venue": "Ресторан \"All Seasons\"",
+        "address": "ул. Большая Морская, 34",
+        "quote": {
+          "text": "ЛЮБОВЬ - ЭТО...",
+          "source": "СОВМЕСТНЫЕ МЕЧТЫ"
+        }
+      }
+    }
+  ]
+}

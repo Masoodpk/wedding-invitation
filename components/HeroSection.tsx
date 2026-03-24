@@ -1,4 +1,16 @@
-export function HeroSection() {
+import { WeddingData } from '@/types/wedding'
+
+interface HeroSectionProps {
+  data: WeddingData
+}
+
+export function HeroSection({ data }: HeroSectionProps) {
+  const weddingDate = new Date(data.details.date)
+  const day = weddingDate.getDate()
+  const month = weddingDate.toLocaleString('en-US', { month: 'long' }).toUpperCase()
+  const year = weddingDate.getFullYear()
+  const weekday = weddingDate.toLocaleString('en-US', { weekday: 'long' }).toUpperCase()
+
   return (
     <header className="reveal relative min-h-[100svh] flex items-center justify-center overflow-visible">
       <div className="absolute inset-0 w-full h-full overflow-hidden">
@@ -13,8 +25,8 @@ export function HeroSection() {
 
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/assets/786.jpg"
-          alt="Wedding couple"
+          src={data.details.heroImage || "/assets/786.jpg"}
+          alt={`${data.details.groom.name} & ${data.details.bride.name} Wedding`}
           className="hero-image parallax absolute inset-0 w-full h-full object-cover object-center scale-[1.05] grayscale opacity-25"
           decoding="async"
         />
@@ -27,20 +39,20 @@ export function HeroSection() {
           <p className="m-0 mb-8 uppercase tracking-[0.3em] text-[clamp(0.7rem,1.5vw,0.9rem)] text-white opacity-80 font-serif">We Are Getting Married</p>
 
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 my-8">
-            <span className="text-[clamp(4rem,12vw,8rem)] text-white leading-none [text-shadow:0_4px_20px_rgba(0,0,0,0.5)] font-script">Naji</span>
+            <span className="text-[clamp(4rem,12vw,8rem)] text-white leading-none [text-shadow:0_4px_20px_rgba(0,0,0,0.5)] font-script">{data.details.groom.name}</span>
             <span className="text-[clamp(1.5rem,3vw,2.5rem)] text-[#E6B836] font-serif">&amp;</span>
-            <span className="text-[clamp(4rem,12vw,8rem)] text-white leading-none [text-shadow:0_4px_20px_rgba(0,0,0,0.5)] font-script">Ayisha</span>
+            <span className="text-[clamp(4rem,12vw,8rem)] text-white leading-none [text-shadow:0_4px_20px_rgba(0,0,0,0.5)] font-script">{data.details.bride.name}</span>
           </div>
 
           <div className="flex items-center justify-center gap-4 md:gap-8 my-8 text-[#E6B836] bg-[#003219]/10 backdrop-blur-[2px] border border-[#E6B836]/15 py-4 px-6 md:px-12 font-serif max-w-[calc(100%-2rem)] mx-auto">
             <div className="flex flex-col items-center line-height-[1.2]">
-              <span className="text-[clamp(1.8rem,4vw,2.5rem)] font-semibold">20</span>
-              <span className="text-[clamp(0.7rem,1.5vw,0.9rem)] tracking-[0.2em]">DECEMBER</span>
+              <span className="text-[clamp(1.8rem,4vw,2.5rem)] font-semibold">{day}</span>
+              <span className="text-[clamp(0.7rem,1.5vw,0.9rem)] tracking-[0.2em]">{month}</span>
             </div>
             <div className="w-px h-10 bg-[#E6B836] opacity-50" />
             <div className="flex flex-col items-center line-height-[1.2]">
-              <span className="text-[clamp(1.8rem,4vw,2.5rem)] font-semibold">2026</span>
-              <span className="text-[clamp(0.7rem,1.5vw,0.9rem)] tracking-[0.2em]">SUNDAY</span>
+              <span className="text-[clamp(1.8rem,4vw,2.5rem)] font-semibold">{year}</span>
+              <span className="text-[clamp(0.7rem,1.5vw,0.9rem)] tracking-[0.2em]">{weekday}</span>
             </div>
           </div>
 

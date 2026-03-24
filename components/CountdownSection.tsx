@@ -1,11 +1,18 @@
-'use client'
-
 import { useCountdown } from '@/hooks/useCountdown'
+import { WeddingData } from '@/types/wedding'
 
-const WEDDING_DATE = '2026-12-20T15:00:00+05:30'
+interface CountdownSectionProps {
+  data: WeddingData
+}
 
-export function CountdownSection() {
-  const { days, hours, minutes, seconds, arrived } = useCountdown(WEDDING_DATE)
+export function CountdownSection({ data }: CountdownSectionProps) {
+  const weddingDate = new Date(data.details.date)
+  const { days, hours, minutes, seconds, arrived } = useCountdown(data.details.date)
+
+  const day = weddingDate.getDate()
+  const month = weddingDate.toLocaleString('en-US', { month: 'long' }).toUpperCase()
+  const year = weddingDate.getFullYear()
+  const weekday = weddingDate.toLocaleString('en-US', { weekday: 'long' }).toUpperCase()
 
   return (
     <section className="reveal py-[clamp(3rem,6vw,5rem)] px-4 max-w-[1000px] mx-auto text-center" id="date">
@@ -18,11 +25,11 @@ export function CountdownSection() {
         </p>
 
         <div className="flex items-center justify-center gap-8 text-text mb-12">
-          <div className="text-[clamp(4rem,8vw,6rem)] leading-none font-serif">20</div>
+          <div className="text-[clamp(4rem,8vw,6rem)] leading-none font-serif">{day}</div>
           <div className="w-px h-20 bg-text opacity-30" />
           <div className="flex flex-col items-start text-accent font-serif">
-            <span className="text-[clamp(2rem,4vw,3.5rem)] leading-none tracking-[0.1em]">DECEMBER</span>
-            <span className="text-[clamp(0.9rem,1.5vw,1.2rem)] tracking-[0.25em] mt-2 text-text opacity-80 font-serif">2026 • SUNDAY</span>
+            <span className="text-[clamp(2rem,4vw,3.5rem)] leading-none tracking-[0.1em]">{month}</span>
+            <span className="text-[clamp(0.9rem,1.5vw,1.2rem)] tracking-[0.25em] mt-2 text-text opacity-80 font-serif">{year} • {weekday}</span>
           </div>
         </div>
 

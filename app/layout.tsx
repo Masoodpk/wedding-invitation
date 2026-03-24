@@ -20,7 +20,6 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Lato:wght@300;400;700&display=swap"
           rel="stylesheet"
         />
-        <link rel="preload" as="image" href="/assets/hero-optimized.jpg" />
       </head>
       <body suppressHydrationWarning>{children}</body>
     </html>
