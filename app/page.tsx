@@ -67,13 +67,19 @@ export default function Home() {
 
   return (
     <>
-      <canvas id="sparkleCanvas" aria-hidden="true" />
+      <canvas 
+        id="sparkleCanvas" 
+        className="fixed inset-0 w-full h-full pointer-events-none z-0" 
+        aria-hidden="true" 
+      />
 
       <IntroScreen onOpen={handleOpen} hidden={isOpen} />
 
       <main
         id="invitation"
-        className="invitation"
+        className={`relative z-[1] w-full transition-opacity duration-[1500ms] ease-in-out ${
+          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
         aria-hidden={!isOpen}
       >
         <HeroSection />

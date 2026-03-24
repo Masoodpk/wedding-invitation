@@ -7,29 +7,32 @@ const rotations16 = [0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5, 180, 202.5, 225, 
 // Outer dots at r=98
 const outerDots = Array.from({ length: 24 }, (_, i) => {
   const angle = (i / 24) * 2 * Math.PI
-  return { cx: 100 + 94 * Math.cos(angle), cy: 100 + 94 * Math.sin(angle) }
+  return { 
+    cx: Math.round((100 + 94 * Math.cos(angle)) * 10000) / 10000, 
+    cy: Math.round((100 + 94 * Math.sin(angle)) * 10000) / 10000 
+  }
 })
 
 export function MandalaDecoration({ className }: { className: string }) {
   return (
     <svg
-      viewBox="0 0 200 200"
+      viewBox="-40 -40 280 280"
       xmlns="http://www.w3.org/2000/svg"
-      className={`mandala-decoration ${className}`}
+      className={className}
       aria-hidden="true"
     >
-      <g fill="none" stroke="currentColor" strokeWidth="0.5">
+      <g fill="none" stroke="white" strokeWidth="0.5">
         {/* Center */}
-        <polygon points="100,88 112,100 100,112 88,100" fill="currentColor" fillOpacity="0.15" strokeWidth="0.8" />
+        <polygon points="100,88 112,100 100,112 88,100" fill="white" fillOpacity="0.15" strokeWidth="0.8" />
         <polygon points="100,82 118,100 100,118 82,100" strokeWidth="0.8" />
         <polygon points="91.5,91.5 108.5,91.5 108.5,108.5 91.5,108.5" strokeWidth="0.8" />
-        <circle cx="100" cy="100" r="3" fill="currentColor" fillOpacity="0.3" />
+        <circle cx="100" cy="100" r="3" fill="white" fillOpacity="0.3" />
 
         {/* Inner arches */}
         {rotations8.map((r) => (
           <g key={`arch-${r}`} transform={`rotate(${r} 100 100)`}>
             <path d="M92 75 Q92 65 100 58 Q108 65 108 75" strokeWidth="0.8" fill="none" />
-            <circle cx="100" cy="58" r="1.5" fill="currentColor" fillOpacity="0.4" />
+            <circle cx="100" cy="58" r="1.5" fill="white" fillOpacity="0.4" />
           </g>
         ))}
         <circle cx="100" cy="100" r="35" strokeWidth="0.3" />
@@ -37,7 +40,7 @@ export function MandalaDecoration({ className }: { className: string }) {
         {/* Small petals */}
         {rotations16.map((r) => (
           <g key={`petal-${r}`} transform={`rotate(${r} 100 100)`}>
-            <path d="M100 65 L102 58 L100 52 L98 58 Z" fill="currentColor" fillOpacity="0.1" strokeWidth="0.5" />
+            <path d="M100 65 L102 58 L100 52 L98 58 Z" fill="white" fillOpacity="0.1" strokeWidth="0.5" />
           </g>
         ))}
 
@@ -46,13 +49,13 @@ export function MandalaDecoration({ className }: { className: string }) {
           <g key={`outer-arch-${r}`} transform={`rotate(${r} 100 100)`}>
             <path d="M88 48 Q88 32 100 22 Q112 32 112 48" strokeWidth="0.6" />
             <path d="M92 46 Q92 35 100 28 Q108 35 108 46" strokeWidth="0.3" strokeOpacity="0.6" />
-            <path d="M100 22 Q103 18 100 14 Q97 18 100 22" fill="currentColor" fillOpacity="0.2" strokeWidth="0.4" />
+            <path d="M100 22 Q103 18 100 14 Q97 18 100 22" fill="white" fillOpacity="0.2" strokeWidth="0.4" />
           </g>
         ))}
         {rotations8.map((r) => (
           <g key={`outer-circle-${r}`} transform={`rotate(${r} 100 100)`}>
             <circle cx="100" cy="40" r="4" strokeWidth="0.5" />
-            <circle cx="100" cy="40" r="2" fill="currentColor" fillOpacity="0.15" />
+            <circle cx="100" cy="40" r="2" fill="white" fillOpacity="0.15" />
           </g>
         ))}
         <circle cx="100" cy="100" r="55" strokeWidth="0.3" strokeDasharray="2 2" />
@@ -61,7 +64,7 @@ export function MandalaDecoration({ className }: { className: string }) {
         {/* Large petals */}
         {rotations8.map((r) => (
           <g key={`large-petal-${r}`} transform={`rotate(${r} 100 100)`}>
-            <path d="M100 40 L105 28 L100 15 L95 28 Z" strokeWidth="0.4" fill="currentColor" fillOpacity="0.05" />
+            <path d="M100 40 L105 28 L100 15 L95 28 Z" strokeWidth="0.4" fill="white" fillOpacity="0.05" />
             <path d="M95 28 Q85 25 78 35" strokeWidth="0.4" strokeOpacity="0.5" />
             <path d="M105 28 Q115 25 122 35" strokeWidth="0.4" strokeOpacity="0.5" />
           </g>
@@ -72,8 +75,8 @@ export function MandalaDecoration({ className }: { className: string }) {
         {/* Outermost decorations */}
         {rotations12.map((r) => (
           <g key={`outermost-${r}`} transform={`rotate(${r} 100 100)`}>
-            <path d="M100 18 A 4 4 0 1 1 100 10 A 3 3 0 1 0 100 18" fill="currentColor" fillOpacity="0.2" strokeWidth="0.3" />
-            <polygon points="100,6 100.8,8 103,8 101.2,9.2 101.8,11.5 100,10 98.2,11.5 98.8,9.2 97,8 99.2,8" fill="currentColor" fillOpacity="0.3" strokeWidth="0" />
+            <path d="M100 18 A 4 4 0 1 1 100 10 A 3 3 0 1 0 100 18" fill="white" fillOpacity="0.2" strokeWidth="0.3" />
+            <polygon points="100,6 100.8,8 103,8 101.2,9.2 101.8,11.5 100,10 98.2,11.5 98.8,9.2 97,8 99.2,8" fill="white" fillOpacity="0.3" strokeWidth="0" />
           </g>
         ))}
         <circle cx="100" cy="100" r="90" strokeWidth="0.3" strokeDasharray="1 3" />
@@ -81,7 +84,7 @@ export function MandalaDecoration({ className }: { className: string }) {
 
         {/* Outer ring dots */}
         {outerDots.map((d, i) => (
-          <circle key={i} cx={d.cx} cy={d.cy} r="1" fill="currentColor" fillOpacity="0.5" />
+          <circle key={i} cx={d.cx} cy={d.cy} r="1" fill="white" fillOpacity="0.5" />
         ))}
       </g>
     </svg>
