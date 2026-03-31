@@ -2,14 +2,6 @@ import { MandalaDecoration } from './MandalaDecoration'
 import { WeddingData } from '@/types/wedding'
 
 interface QuoteSectionProps {
-  data: WeddingData
-}
-
-export function QuoteSection({ data }: QuoteSectionProps) {
-  const quoteText = data.details.quote?.text || "And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility with them..."
-  const quoteSource = data.details.quote?.source || "Surah Ar-Rum"
-
-interface QuoteSectionProps {
   text: string
   source: string
 }
