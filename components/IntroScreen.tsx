@@ -4,10 +4,13 @@ import { WeddingData } from '@/types/wedding'
 interface IntroScreenProps {
   onOpen: () => void
   hidden: boolean
-  data: WeddingData
+  brideName: string
+  groomName: string
+  basmala: string
+  subtitle: string
 }
 
-export function IntroScreen({ onOpen, hidden, data }: IntroScreenProps) {
+export function IntroScreen({ onOpen, hidden, brideName, groomName, basmala, subtitle }: IntroScreenProps) {
   return (
     <section
       id="introScreen"
@@ -31,22 +34,22 @@ export function IntroScreen({ onOpen, hidden, data }: IntroScreenProps) {
       <div className="w-full max-w-2xl text-center z-[1] flex flex-col items-center justify-center">
         <div className="flex flex-col items-center mb-8">
           <p className="m-0 text-[1.5rem] md:text-[1.8rem] text-[#E6B836] leading-[1.2] font-arabic">
-            بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ
+            {basmala}
           </p>
         </div>
 
         <h1 className="mt-8 mb-0 flex flex-col items-center gap-0 leading-[1.1]">
-          <span className="text-[60px] md:text-[90px] text-white font-normal font-script">{data.details.groom.name}</span>
+          <span className="text-[60px] md:text-[90px] text-white font-normal font-script">{groomName}</span>
           <div className="flex items-center justify-center gap-4 w-full my-4">
             <div className="flex-none w-12 h-px bg-[#E6B836] opacity-40" />
             <span className="text-[1.2rem] font-normal text-[#E6B836] font-serif">&amp;</span>
             <div className="flex-none w-12 h-px bg-[#E6B836] opacity-40" />
           </div>
-          <span className="text-[60px] md:text-[90px] text-white font-normal font-script">{data.details.bride.name}</span>
+          <span className="text-[60px] md:text-[90px] text-white font-normal font-script">{brideName}</span>
         </h1>
 
         <p className="mt-12 mb-0 text-white tracking-[0.25em] uppercase text-[0.9rem] opacity-50 font-serif">
-          Request the honor of your presence
+          {subtitle}
         </p>
 
         <div className="relative flex flex-col items-center mt-12 gap-6">

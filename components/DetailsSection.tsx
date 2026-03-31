@@ -23,50 +23,81 @@ const PinIcon = () => (
 )
 
 interface DetailsSectionProps {
-  data: WeddingData
+  ceremonyTitle: string
+  ceremonyTime: string
+  ceremonyDateText: string
+  ceremonyLocationName: string
+  receptionTitle: string
+  receptionTime: string
+  receptionDateText: string
+  receptionLocationName: string
+  venueTitle: string
+  venueName: string
+  venueAddress: string
+  venueMapUrl: string
+  venueCtaLabel: string
 }
 
-export function DetailsSection({ data }: DetailsSectionProps) {
-  const events = data.details.events || []
-
-  const renderIcon = (icon?: string) => {
-    switch (icon) {
-      case 'calendar': return <CalendarIcon />
-      case 'reception': return <DollarIcon />
-      case 'pin': return <PinIcon />
-      default: return <CalendarIcon />
-    }
-  }
-
+export function DetailsSection({
+  ceremonyTitle,
+  ceremonyTime,
+  ceremonyDateText,
+  ceremonyLocationName,
+  receptionTitle,
+  receptionTime,
+  receptionDateText,
+  receptionLocationName,
+  venueTitle,
+  venueName,
+  venueAddress,
+  venueMapUrl,
+  venueCtaLabel,
+}: DetailsSectionProps) {
   return (
     <section className="reveal py-[clamp(3rem,6vw,5rem)] px-4 max-w-[1200px] mx-auto" id="details">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-md md:max-w-none mx-auto">
-        {events.map((event, index) => (
-          <article 
-            key={index}
-            className="border border-accent/20 bg-bg py-12 px-6 text-center flex flex-col items-center shadow-2xl relative rounded-t-[9999px] rounded-b-xl transition-all duration-300 hover:border-accent/40"
+        {/* Nikah */}
+        <article className="border border-accent/20 bg-bg py-12 px-6 text-center flex flex-col items-center shadow-2xl relative rounded-t-[9999px] rounded-b-xl transition-all duration-300 hover:border-accent/40">
+          <div className="w-[50px] h-[50px] border border-accent rotate-45 flex items-center justify-center mb-10" aria-hidden="true">
+            <CalendarIcon />
+          </div>
+          <h5 className="text-2xl text-text m-0 mb-4 tracking-[0.1em] font-serif">{ceremonyTitle}</h5>
+          <div className="w-10 h-px bg-accent mx-auto mb-6 opacity-50" />
+          <p className="text-[1.2rem] m-0 mb-2 font-serif text-accent">{ceremonyTime}</p>
+          <p className="m-0.5 text-[0.95rem] opacity-80 text-[#FAFAF2] font-body">{ceremonyDateText}</p>
+          <p className="m-0.5 text-[0.95rem] opacity-80 text-[#FAFAF2] font-body">{ceremonyLocationName}</p>
+        </article>
+
+        {/* Reception */}
+        <article className="border border-accent/20 bg-bg py-12 px-6 text-center flex flex-col items-center shadow-2xl relative rounded-t-[9999px] rounded-b-xl transition-all duration-300 hover:border-accent/40">
+          <div className="w-[50px] h-[50px] border border-accent rotate-45 flex items-center justify-center mb-10" aria-hidden="true">
+            <DollarIcon />
+          </div>
+          <h5 className="text-2xl text-text m-0 mb-4 tracking-[0.1em] font-serif">{receptionTitle}</h5>
+          <div className="w-10 h-px bg-accent mx-auto mb-6 opacity-50" />
+          <p className="text-[1.2rem] m-0 mb-2 font-serif text-accent">{receptionTime}</p>
+          <p className="m-0.5 text-[0.95rem] opacity-80 text-[#FAFAF2] font-body">{receptionDateText}</p>
+          <p className="m-0.5 text-[0.95rem] opacity-80 text-[#FAFAF2] font-body">{receptionLocationName}</p>
+        </article>
+
+        {/* Venue */}
+        <article className="border border-accent/20 bg-bg py-12 px-6 text-center flex flex-col items-center shadow-2xl relative rounded-t-[9999px] rounded-b-xl transition-all duration-300 hover:border-accent/40">
+          <div className="w-[50px] h-[50px] border border-accent rotate-45 flex items-center justify-center mb-10" aria-hidden="true">
+            <PinIcon />
+          </div>
+          <h5 className="text-2xl text-text m-0 mb-4 tracking-[0.1em] font-serif">{venueTitle}</h5>
+          <div className="w-10 h-px bg-accent mx-auto mb-6 opacity-50" />
+          <p className="text-[1.2rem] m-0 mb-2 font-serif text-accent">{venueName}</p>
+          <p className="m-0.5 text-[0.95rem] opacity-80 text-[#FAFAF2] font-body mb-4">{venueAddress}</p>
+          <a
+            href={venueMapUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block mt-6 border border-accent text-accent no-underline py-3 px-6 text-[0.8rem] tracking-[0.2em] transition-all duration-300 rounded hover:bg-accent hover:text-bg font-serif"
           >
-            <div className="w-[50px] h-[50px] border border-accent rotate-45 flex items-center justify-center mb-10" aria-hidden="true">
-              {renderIcon(event.icon)}
-            </div>
-            <h5 className="text-2xl text-text m-0 mb-4 tracking-[0.1em] font-serif">{event.title}</h5>
-            <div className="w-10 h-px bg-accent mx-auto mb-6 opacity-50" />
-            <p className="text-[1.2rem] m-0 mb-2 font-serif text-accent">{event.time}</p>
-            <p className="m-0.5 text-[0.95rem] opacity-80 text-[#FAFAF2] font-body">{event.date}</p>
-            {event.location && <p className="m-0.5 text-[0.95rem] opacity-80 text-[#FAFAF2] font-body">{event.location}</p>}
-            
-            {event.mapLink && (
-              <a
-                href={event.mapLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-6 border border-accent text-accent no-underline py-3 px-6 text-[0.8rem] tracking-[0.2em] transition-all duration-300 rounded hover:bg-accent hover:text-bg font-serif"
-              >
-                GET DIRECTIONS
-              </a>
-            )}
-          </article>
-        ))}
+            {venueCtaLabel}
+          </a>
+        </article>
       </div>
     </section>
   )

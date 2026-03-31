@@ -1,19 +1,30 @@
-import { WeddingData } from '@/types/wedding'
-
 interface CoupleSectionProps {
-  data: WeddingData
+  groomName: string
+  groomDetailsLine: string
+  brideName: string
+  brideDetailsLine: string
+  heading: string
+  subheading: string
 }
 
-export function CoupleSection({ data }: CoupleSectionProps) {
-  const { groom, bride } = data.details
+export function CoupleSection({
+  groomName,
+  groomDetailsLine,
+  brideName,
+  brideDetailsLine,
+  heading,
+  subheading,
+}: CoupleSectionProps) {
+  const [groomFirst, ...groomRest] = groomName.trim().split(/\s+/)
+  const [brideFirst, ...brideRest] = brideName.trim().split(/\s+/)
 
   return (
     <section className="reveal py-8 px-4 pb-[clamp(4rem,8vw,6rem)] max-w-[1100px] mx-auto text-center" id="couple">
       <div className="mb-16">
-        <h2 className="text-[clamp(3rem,7vw,5rem)] text-text m-0 leading-none font-script">The Happy Couple</h2>
+        <h2 className="text-[clamp(3rem,7vw,5rem)] text-text m-0 leading-none font-script">{heading}</h2>
         <div className="flex items-center justify-center gap-6 mt-4 text-accent text-[clamp(0.7rem,1.5vw,0.9rem)] tracking-[0.2em] uppercase font-serif">
           <span className="flex-none w-[60px] h-px bg-accent opacity-40" />
-          <p>Request the honor of your presence</p>
+          <p>{subheading}</p>
           <span className="flex-none w-[60px] h-px bg-accent opacity-40" />
         </div>
       </div>
@@ -24,11 +35,15 @@ export function CoupleSection({ data }: CoupleSectionProps) {
           <div className="w-full text-center">
             <p className="text-accent text-[0.8rem] tracking-[0.25em] m-0 mb-4 font-serif">• THE GROOM</p>
             <h4 className="text-[clamp(1.8rem,3vw,2.4rem)] text-text m-0 mb-2 leading-[1.2] font-serif">
-              {groom.fullName ? groom.fullName.split(' ').join('\n') : groom.name}
+              {groomFirst}
+              {groomRest.length > 0 ? (
+                <>
+                  <br />
+                  {groomRest.join(' ')}
+                </>
+              ) : null}
             </h4>
-            {groom.parents && (
-              <p className="text-muted text-[0.95rem] m-0 font-body italic">Son of {groom.parents}</p>
-            )}
+            <p className="text-muted text-[0.95rem] m-0 font-body italic">{groomDetailsLine}</p>
           </div>
         </article>
 
@@ -41,11 +56,15 @@ export function CoupleSection({ data }: CoupleSectionProps) {
           <div className="w-full text-center">
             <p className="text-accent text-[0.8rem] tracking-[0.25em] m-0 mb-4 font-serif">THE BRIDE •</p>
             <h4 className="text-[clamp(1.8rem,3vw,2.4rem)] text-text m-0 mb-2 leading-[1.2] font-serif">
-              {bride.fullName ? bride.fullName.split(' ').join('\n') : bride.name}
+              {brideFirst}
+              {brideRest.length > 0 ? (
+                <>
+                  <br />
+                  {brideRest.join(' ')}
+                </>
+              ) : null}
             </h4>
-            {bride.parents && (
-              <p className="text-muted text-[0.95rem] m-0 font-body italic">Daughter of {bride.parents}</p>
-            )}
+            <p className="text-muted text-[0.95rem] m-0 font-body italic">{brideDetailsLine}</p>
           </div>
         </article>
       </div>

@@ -1,27 +1,24 @@
 import { useCountdown } from '@/hooks/useCountdown'
-import { WeddingData } from '@/types/wedding'
+import { formatDateParts } from '@/lib/wedding'
 
 interface CountdownSectionProps {
-  data: WeddingData
+  dateTimeLocal: string
+  heading: string
+  subheading: string
 }
 
-export function CountdownSection({ data }: CountdownSectionProps) {
-  const weddingDate = new Date(data.details.date)
-  const { days, hours, minutes, seconds, arrived } = useCountdown(data.details.date)
-
-  const day = weddingDate.getDate()
-  const month = weddingDate.toLocaleString('en-US', { month: 'long' }).toUpperCase()
-  const year = weddingDate.getFullYear()
-  const weekday = weddingDate.toLocaleString('en-US', { weekday: 'long' }).toUpperCase()
+export function CountdownSection({ dateTimeLocal, heading, subheading }: CountdownSectionProps) {
+  const { days, hours, minutes, seconds, arrived } = useCountdown(dateTimeLocal)
+  const { day, month, year, weekday } = formatDateParts(dateTimeLocal)
 
   return (
     <section className="reveal py-[clamp(3rem,6vw,5rem)] px-4 max-w-[1000px] mx-auto text-center" id="date">
-      <h3 className="font-serif text-[clamp(2rem,4vw,3rem)] text-accent m-0 mb-4 tracking-[0.1em]">CELEBRATION DETAILS</h3>
+      <h3 className="font-serif text-[clamp(2rem,4vw,3rem)] text-accent m-0 mb-4 tracking-[0.1em]">{heading}</h3>
       <div className="w-[60px] h-0.5 bg-accent mx-auto mb-12 opacity-50" />
 
       <div className="bg-card rounded-[20px] p-[clamp(2rem,5vw,4rem)] shadow-2xl">
         <p className="font-serif tracking-widest text-accent text-sm mb-4">
-          SAVE THE DATE
+          {subheading}
         </p>
 
         <div className="flex items-center justify-center gap-8 text-text mb-12">
@@ -29,7 +26,9 @@ export function CountdownSection({ data }: CountdownSectionProps) {
           <div className="w-px h-20 bg-text opacity-30" />
           <div className="flex flex-col items-start text-accent font-serif">
             <span className="text-[clamp(2rem,4vw,3.5rem)] leading-none tracking-[0.1em]">{month}</span>
-            <span className="text-[clamp(0.9rem,1.5vw,1.2rem)] tracking-[0.25em] mt-2 text-text opacity-80 font-serif">{year} • {weekday}</span>
+            <span className="text-[clamp(0.9rem,1.5vw,1.2rem)] tracking-[0.25em] mt-2 text-text opacity-80 font-serif">
+              {year} • {weekday}
+            </span>
           </div>
         </div>
 

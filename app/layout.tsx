@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Wedding Invitation | Naji & Ayisha',
-  description: 'Join us as we celebrate the wedding of Naji Ibn Muhammed and Ayisha.',
+  title: 'Wedding Website Builder',
+  description: 'Create a wedding website from templates.',
 }
 
 export default function RootLayout({

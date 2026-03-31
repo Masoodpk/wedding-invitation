@@ -1,0 +1,92 @@
+{
+  "couple": {
+    "bride": {
+      "name": "Ayisha Ziyad",
+      "detailsLine": "Daughter of Mr. & Mrs. Ziyad"
+    },
+    "groom": {
+      "name": "Naji Ibn Muhammed",
+      "detailsLine": "Son of Mr. & Mrs. Muhammed"
+    }
+  },
+  "wedding": {
+    "dateTimeLocal": "2026-12-20T15:00",
+    "heroImageUrl": "/assets/786.jpg",
+    "tagline": "We Are Getting Married",
+    "basmala": "بِسْمِ ٱللَّٰهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ",
+    "musicUrl": "/assets/wedding_music.mp3"
+  },
+  "quote": {
+    "text": "“And among His signs is that He created for you mates from among yourselves, that you may find tranquility in them...”",
+    "source": "Surah Ar-Rum"
+  },
+  "events": {
+    "ceremony": {
+      "title": "NIKAH",
+      "time": "3:00 PM",
+      "dateText": "20 December 2026",
+      "locationName": "Bride's Residence"
+    },
+    "reception": {
+      "title": "RECEPTION",
+      "time": "6:00 PM",
+      "dateText": "20 December 2026",
+      "locationName": "Groom's Residence"
+    },
+    "venue": {
+      "title": "THE VENUE",
+      "name": "Kothiyoth House",
+      "address": "Nandi Bazar, Calicut",
+      "mapUrl": "https://www.google.com/maps?q=11.483810424804688,75.64095306396484&z=17&hl=en",
+      "ctaLabel": "GET DIRECTIONS"
+    }
+  },
+  "templateTwo": {
+    "topLeftText": "AYISHA & NAJI",
+    "topRightCtaLabel": "RSVP",
+    "description": "The wedding will be held on Sunday, December 20, 2026. We'll start with the ceremony, then move to the reception. Dress code will be black tie optional.",
+    "heroImageUrl": "/assets/786.jpg",
+    "primaryCtaLabel": "RSVP",
+    "travelHeading": "Travel",
+    "travelText": "We've reserved a block of rooms. Just mention the wedding when you book your reservation.",
+    "travelHotelName": "The Melike Hotel",
+    "travelHotelAddress": "123 Demo St, New York, NY 12345"
+  },
+  "templateThree": {
+    "headerText": "BRIAN & MEGAN",
+    "topLinks": ["OUR STORY", "SCHEDULE", "LOCATION"],
+    "rsvpLabel": "RSVP",
+    "galleryImages": ["/assets/groom-optimized.jpg", "/assets/786.jpg", "/assets/bride-optimized.jpg"],
+    "scheduleHeading": "OUR SPECIAL DAY'S",
+    "scheduleSubheading": "SCHEDULE",
+    "scheduleItems": [
+      { "time": "4:00 PM", "label": "CEREMONY" },
+      { "time": "5:00 PM", "label": "COCKTAIL" },
+      { "time": "6:30 PM", "label": "DINNER" },
+      { "time": "10:00 PM", "label": "DANCING & FIREWORKS" }
+    ],
+    "locationHeading": "LOCATION",
+    "locationLeftText": "DUNDRUM CASTLE\\nHOTEL & RESTAURANT",
+    "locationRightText": "SLEEPING HEAD COUNTRY\\nCLUB, IRELAND",
+    "locationImageUrl": "/assets/786.jpg",
+    "locationCtaLabel": "VIEW ON MAP",
+    "countdownBackgroundUrl": "/assets/786.jpg",
+    "registryHeading": "REGISTRY",
+    "registryText": "Your presence is the greatest gift. If you would like to honor us with something more, a registry link can be added here.",
+    "dressCodeHeading": "DRESS CODE",
+    "dressCodeText": "Black tie optional."
+  },
+  "templateFour": {
+    "headerText": "SQUARESPACE WEDDING RSVP",
+    "navItems": ["SCHEDULE", "VENUE", "FAQ", "RSVP"],
+    "heroImageUrl": "/assets/786.jpg",
+    "heroKicker": "WEDDING INVITATION",
+    "heroTitle": "James and Charlotte",
+    "heroDateText": "15th May 2027",
+    "welcomeKicker": "WELCOME TO OUR WEDDING INVITATION!",
+    "welcomeHeading": "You are Invited",
+    "welcomeText": "We’re so excited to share this special moment with you. As we begin our journey together, we’d love for you to join us in celebrating our big day. Here you’ll find all the details you need—our love story, events schedule, venue information, RSVP, and more.",
+    "galleryImages": ["/assets/groom-optimized.jpg", "/assets/bride-optimized.jpg", "/assets/786.jpg"],
+    "primaryCtaLabel": "RSVP"
+  }
+}
