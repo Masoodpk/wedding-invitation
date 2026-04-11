@@ -1,0 +1,8 @@
+const TemplateOne_vue_vue_type_style_index_0_lang = '@import"https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Caveat:wght@400;700&display=swap";.theme-sketchy{background-color:#f5f1e9}.theme-sketchy .font-sans,.theme-sketchy .font-serif{font-family:Montserrat,sans-serif}.theme-sketchy .font-script{font-family:Caveat,cursive}@keyframes draw{0%{stroke-dashoffset:300}to{stroke-dashoffset:0}}';
+
+const TemplateOneStyles_DbkgF6uI = [
+  TemplateOne_vue_vue_type_style_index_0_lang
+];
+
+export { TemplateOneStyles_DbkgF6uI as default };
+//# sourceMappingURL=TemplateOne-styles.DbkgF6uI.mjs.map
