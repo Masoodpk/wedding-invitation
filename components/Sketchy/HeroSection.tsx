@@ -23,7 +23,7 @@ export function HeroSectionSketchy({ data }: HeroProps) {
       <div className="max-w-[1200px] w-full grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
         <div className="order-2 md:order-1 flex flex-col items-center md:items-start text-center md:text-left">
           <div className="inline-block px-4 py-1 border border-[#C62828] text-[#C62828] text-sm tracking-[0.3em] uppercase mb-8">
-            The Wedding of
+            The Wedding of -------
           </div>
 
           <h2 className="text-[clamp(3.5rem,10vw,7rem)] leading-[0.9] font-serif uppercase tracking-tighter mb-4 text-[#1A1A1A]">
